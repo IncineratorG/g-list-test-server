@@ -8,6 +8,7 @@ const signUp = require('./src/handlers/sign-up/signUp');
 const checkUser = require('./src/handlers/check-user/checkUser');
 const sendMessage = require('./src/handlers/send-message/sendMessage');
 const shareShoppingList = require('./src/handlers/share-shopping-list/shareShoppingList');
+const removeShoppingList = require('./src/handlers/remove-shopping-list/removeShoppingList');
 
 exports.signIn = functions.https.onRequest(async (req, res) => {
     await signIn.signInHandler({req, res, admin});
@@ -27,4 +28,8 @@ exports.sendMessage = functions.https.onRequest(async (req, res) => {
 
 exports.shareShoppingList = functions.https.onRequest(async (req, res) => {
     await shareShoppingList.shareShoppingListHandler({req, res, admin});
+});
+
+exports.removeShoppingList = functions.https.onRequest(async (req, res) => {
+   await removeShoppingList.removeShoppingListHandler({req, res, admin});
 });

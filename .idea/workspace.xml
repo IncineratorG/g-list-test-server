@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +73,9 @@
       <workItem from="1583477215586" duration="5022000" />
       <workItem from="1583569915536" duration="1987000" />
       <workItem from="1583593365870" duration="628000" />
-      <workItem from="1583829325243" duration="4282000" />
+      <workItem from="1583829325243" duration="4315000" />
+      <workItem from="1584291009401" duration="9000" />
+      <workItem from="1584597749936" duration="5809000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -81,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583262392025</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Работа над передачей списков покупок между устройствами.">
+      <created>1583863493915</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583863493915</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +112,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Работа над передачей сообщений между устройствами." />
-    <option name="LAST_COMMIT_MESSAGE" value="Работа над передачей сообщений между устройствами." />
+    <MESSAGE value="Работа над передачей списков покупок между устройствами." />
+    <option name="LAST_COMMIT_MESSAGE" value="Работа над передачей списков покупок между устройствами." />
   </component>
 </project>
