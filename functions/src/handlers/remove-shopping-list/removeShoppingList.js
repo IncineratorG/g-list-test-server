@@ -22,7 +22,10 @@ exports.removeShoppingListHandler = async ({req, res, admin}) => {
         .once('value');
 
     const senderPhone = senderData.val();
-    const receiversPhones = receiversData.val();
+    const receiversPhones = [];
+    receiversData.forEach(child => {
+        receiversPhones.push(child.val());
+    });
 
     let updates = {};
     updates['/users/' + senderPhone + '/send/' + shoppingListId] = null;

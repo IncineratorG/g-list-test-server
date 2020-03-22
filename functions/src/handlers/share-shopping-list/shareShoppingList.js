@@ -49,10 +49,11 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
         return;
     }
 
-    const shoppingListDescription = Object.assign({}, shoppingList);
-    delete shoppingListDescription.productsList;
-
     const sharedListRef = admin.database().ref('/shared/shoppingLists').push();
+
+    const shoppingListDescription = Object.assign({}, shoppingList);
+    shoppingListDescription.id = sharedListRef.key;
+    delete shoppingListDescription.productsList;
 
     const secondUpdates = {};
     secondUpdates['/shared/shoppingLists/' + sharedListRef.key] = {
@@ -93,18 +94,20 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
             .ref('/shared/shoppingLists/' + sharedListRef.key + '/shoppingList/productsList')
             .push()
             .key;
+
+        product.id = productKey;
+        product.parentId = sharedListRef.key;
+
         thirdUpdates['/shared/shoppingLists/' + sharedListRef.key + '/shoppingList/productsList/' + productKey] = product;
     });
 
     thirdUpdates['/users/' + senderPhone + '/send/' + sharedListRef.key] = {
         id: sharedListRef.key,
-        shoppingListCard: shoppingListCard
     };
     receiversDbData.forEach(data => {
         thirdUpdates['/users/' + data.phone + '/received/' + sharedListRef.key] = {
             id: sharedListRef.key,
             touched: false,
-            shoppingListCard: shoppingListCard
         };
     });
     await admin.database().ref().update(thirdUpdates);

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/ReactNativeProjects/g-list-final-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -76,7 +77,9 @@
       <workItem from="1584597749936" duration="7564000" />
       <workItem from="1584619415040" duration="963000" />
       <workItem from="1584638434747" duration="600000" />
-      <workItem from="1584698928319" duration="10178000" />
+      <workItem from="1584698928319" duration="10472000" />
+      <workItem from="1584858537561" duration="2239000" />
+      <workItem from="1584880981413" duration="4135000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -99,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584603753680</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Изменён формат расшаренных списков.">
+      <created>1584735715492</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1584735715492</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +132,7 @@
     <MESSAGE value="Работа над передачей сообщений между устройствами." />
     <MESSAGE value="Работа над передачей списков покупок между устройствами." />
     <MESSAGE value="Появилась возможность отправки списка нескольким пользователя.&#10;Появилась возможность удаления списка покупок." />
-    <option name="LAST_COMMIT_MESSAGE" value="Появилась возможность отправки списка нескольким пользователя.&#10;Появилась возможность удаления списка покупок." />
+    <MESSAGE value="Изменён формат расшаренных списков." />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменён формат расшаренных списков." />
   </component>
 </project>
