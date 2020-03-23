@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/functions/src/handlers/send-update-message/sendUpdateMessage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/handlers/update-timestamp/updateTimestamp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,7 +81,9 @@
       <workItem from="1584638434747" duration="600000" />
       <workItem from="1584698928319" duration="10472000" />
       <workItem from="1584858537561" duration="2239000" />
-      <workItem from="1584880981413" duration="4135000" />
+      <workItem from="1584880981413" duration="6170000" />
+      <workItem from="1584942911447" duration="6586000" />
+      <workItem from="1584991851807" duration="1225000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -109,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584735715492</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Не помню что поменял.">
+      <created>1584907893011</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584907893011</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +144,7 @@
     <MESSAGE value="Работа над передачей списков покупок между устройствами." />
     <MESSAGE value="Появилась возможность отправки списка нескольким пользователя.&#10;Появилась возможность удаления списка покупок." />
     <MESSAGE value="Изменён формат расшаренных списков." />
-    <option name="LAST_COMMIT_MESSAGE" value="Изменён формат расшаренных списков." />
+    <MESSAGE value="Не помню что поменял." />
+    <option name="LAST_COMMIT_MESSAGE" value="Не помню что поменял." />
   </component>
 </project>

@@ -55,22 +55,22 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
     shoppingListDescription.id = sharedListRef.key;
     delete shoppingListDescription.productsList;
 
-    const secondUpdates = {};
-    secondUpdates['/shared/shoppingLists/' + sharedListRef.key] = {
+    const firstUpdates = {};
+    firstUpdates['/shared/shoppingLists/' + sharedListRef.key] = {
         sender: senderPhone,
         shoppingListCard,
         shoppingList: shoppingListDescription,
     };
-    await admin.database().ref().update(secondUpdates);
+    await admin.database().ref().update(firstUpdates);
 
-    const thirdUpdates = {};
+    const secondUpdates = {};
     classes.forEach(cls => {
         const clsKey = admin
             .database()
             .ref('/shared/shoppingLists/' + sharedListRef.key + '/classes')
             .push()
             .key;
-        thirdUpdates['/shared/shoppingLists/' + sharedListRef.key + '/classes/' + clsKey] = cls;
+        secondUpdates['/shared/shoppingLists/' + sharedListRef.key + '/classes/' + clsKey] = cls;
     });
     units.forEach(unit => {
         const unitKey = admin
@@ -78,7 +78,7 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
             .ref('/shared/shoppingLists/' + sharedListRef.key + '/units')
             .push()
             .key;
-        thirdUpdates['/shared/shoppingLists/' + sharedListRef.key + '/units/' + unitKey] = unit;
+        secondUpdates['/shared/shoppingLists/' + sharedListRef.key + '/units/' + unitKey] = unit;
     });
     receiversPhones.forEach(receiverPhone => {
         const receiverPhoneKey = admin
@@ -86,7 +86,7 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
             .ref('/shared/shoppingLists/' + sharedListRef.key + '/receivers')
             .push()
             .key;
-        thirdUpdates['/shared/shoppingLists/' + sharedListRef.key + '/receivers/' + receiverPhoneKey] = receiverPhone;
+        secondUpdates['/shared/shoppingLists/' + sharedListRef.key + '/receivers/' + receiverPhoneKey] = receiverPhone;
     });
     shoppingList.productsList.forEach(product => {
         const productKey = admin
@@ -98,19 +98,23 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
         product.id = productKey;
         product.parentId = sharedListRef.key;
 
-        thirdUpdates['/shared/shoppingLists/' + sharedListRef.key + '/shoppingList/productsList/' + productKey] = product;
+        secondUpdates['/shared/shoppingLists/' + sharedListRef.key + '/shoppingList/productsList/' + productKey] = product;
     });
 
-    thirdUpdates['/users/' + senderPhone + '/send/' + sharedListRef.key] = {
+    const currentDate = Date.now();
+
+    secondUpdates['/users/' + senderPhone + '/send/' + sharedListRef.key] = {
         id: sharedListRef.key,
+        updateTimestamp: currentDate,
     };
     receiversDbData.forEach(data => {
-        thirdUpdates['/users/' + data.phone + '/received/' + sharedListRef.key] = {
+        secondUpdates['/users/' + data.phone + '/received/' + sharedListRef.key] = {
             id: sharedListRef.key,
+            updateTimestamp: currentDate,
             touched: false,
         };
     });
-    await admin.database().ref().update(thirdUpdates);
+    await admin.database().ref().update(secondUpdates);
 
     res.json({
         status: statusTypes.SUCCESS,

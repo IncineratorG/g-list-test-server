@@ -9,6 +9,8 @@ const checkUser = require('./src/handlers/check-user/checkUser');
 const sendMessage = require('./src/handlers/send-message/sendMessage');
 const shareShoppingList = require('./src/handlers/share-shopping-list/shareShoppingList');
 const removeShoppingList = require('./src/handlers/remove-shopping-list/removeShoppingList');
+const sendUpdateMessage = require('./src/handlers/send-update-message/sendUpdateMessage');
+const updateTimestamp = require('./src/handlers/update-timestamp/updateTimestamp');
 
 exports.signIn = functions.https.onRequest(async (req, res) => {
     await signIn.signInHandler({req, res, admin});
@@ -32,4 +34,12 @@ exports.shareShoppingList = functions.https.onRequest(async (req, res) => {
 
 exports.removeShoppingList = functions.https.onRequest(async (req, res) => {
    await removeShoppingList.removeShoppingListHandler({req, res, admin});
+});
+
+exports.sendUpdateMessage = functions.https.onRequest(async (req, res) => {
+    await sendUpdateMessage.sendUpdateMessageHandler({req, res, admin});
+});
+
+exports.updateTimestamp = functions.https.onRequest(async (req, res) => {
+    await updateTimestamp.updateTimestampHandler({req, res, admin});
 });
