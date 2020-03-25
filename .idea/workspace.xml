@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/functions/src/handlers/send-update-message/sendUpdateMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/functions/src/handlers/update-timestamp/updateTimestamp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/firebase-paths/firebasePaths.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/ReactNativeProjects/g-list-final-test" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -83,7 +83,11 @@
       <workItem from="1584858537561" duration="2239000" />
       <workItem from="1584880981413" duration="6170000" />
       <workItem from="1584942911447" duration="6586000" />
-      <workItem from="1584991851807" duration="1225000" />
+      <workItem from="1584991851807" duration="1397000" />
+      <workItem from="1585037407333" duration="602000" />
+      <workItem from="1585057199046" duration="664000" />
+      <workItem from="1585077432602" duration="1120000" />
+      <workItem from="1585139923113" duration="7747000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -120,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584907893011</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавил синхронизацию обновлений.">
+      <created>1584995707217</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584995707217</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +156,7 @@
     <MESSAGE value="Появилась возможность отправки списка нескольким пользователя.&#10;Появилась возможность удаления списка покупок." />
     <MESSAGE value="Изменён формат расшаренных списков." />
     <MESSAGE value="Не помню что поменял." />
-    <option name="LAST_COMMIT_MESSAGE" value="Не помню что поменял." />
+    <MESSAGE value="Добавил синхронизацию обновлений." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил синхронизацию обновлений." />
   </component>
 </project>

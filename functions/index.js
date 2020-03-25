@@ -11,6 +11,20 @@ const shareShoppingList = require('./src/handlers/share-shopping-list/shareShopp
 const removeShoppingList = require('./src/handlers/remove-shopping-list/removeShoppingList');
 const sendUpdateMessage = require('./src/handlers/send-update-message/sendUpdateMessage');
 const updateTimestamp = require('./src/handlers/update-timestamp/updateTimestamp');
+const setProductStatus = require('./src/handlers/set-product-status/setProductStatus');
+const addProduct = require('./src/handlers/add-product/addProduct');
+
+exports.sendMessage = functions.https.onRequest(async (req, res) => {
+    await sendMessage.sendMessageHandler({req, res, admin});
+});
+
+exports.sendUpdateMessage = functions.https.onRequest(async (req, res) => {
+    await sendUpdateMessage.sendUpdateMessageHandler({req, res, admin});
+});
+
+exports.updateTimestamp = functions.https.onRequest(async (req, res) => {
+    await updateTimestamp.updateTimestampHandler({req, res, admin});
+});
 
 exports.signIn = functions.https.onRequest(async (req, res) => {
     await signIn.signInHandler({req, res, admin});
@@ -24,10 +38,6 @@ exports.checkUser = functions.https.onRequest(async (req, res) => {
     await checkUser.checkUserHandler({req, res, admin});
 });
 
-exports.sendMessage = functions.https.onRequest(async (req, res) => {
-    await sendMessage.sendMessageHandler({req, res, admin});
-});
-
 exports.shareShoppingList = functions.https.onRequest(async (req, res) => {
     await shareShoppingList.shareShoppingListHandler({req, res, admin});
 });
@@ -36,10 +46,10 @@ exports.removeShoppingList = functions.https.onRequest(async (req, res) => {
    await removeShoppingList.removeShoppingListHandler({req, res, admin});
 });
 
-exports.sendUpdateMessage = functions.https.onRequest(async (req, res) => {
-    await sendUpdateMessage.sendUpdateMessageHandler({req, res, admin});
+exports.setProductStatus = functions.https.onRequest(async (req, res) => {
+    await setProductStatus.setProductStatusHandler({req, res, admin});
 });
 
-exports.updateTimestamp = functions.https.onRequest(async (req, res) => {
-    await updateTimestamp.updateTimestampHandler({req, res, admin});
+exports.addProduct = functions.https.onRequest(async (req, res) => {
+    await addProduct.addProductHandler({req, res, admin});
 });
