@@ -1,4 +1,5 @@
 const statusTypes = require('../../data/common/statusTypes');
+const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
 
 exports.signInHandler = async ({req, res, admin}) => {
     const requestData = req.body;
@@ -17,7 +18,11 @@ exports.signInHandler = async ({req, res, admin}) => {
         return;
     }
 
-    const snapshot = await admin.database().ref('/users/' + phone).once('value');
+    const userPath = firebasePaths.getPath({
+        pathType: firebasePaths.paths.USER,
+        userId: phone,
+    });
+    const snapshot = await admin.database().ref(userPath).once('value');
     if (!snapshot.exists()) {
         res.json({
             status: statusTypes.USER_NOT_EXIST,
@@ -33,7 +38,11 @@ exports.signInHandler = async ({req, res, admin}) => {
     }
 
     if (snapshot.val().token !== deviceToken) {
-        await admin.database().ref('/users').child(phone).update({token: deviceToken});
+        await admin
+            .database()
+            .ref(firebasePaths.d + firebasePaths.folderNames.USERS)
+            .child(phone)
+            .update({token: deviceToken});
     }
 
     res.json({

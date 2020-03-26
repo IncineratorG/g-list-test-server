@@ -1,5 +1,34 @@
 exports.getPath = ({pathType, userId, shoppingListId, productId}) => {
     switch (pathType) {
+        case exports.paths.USER: {
+            if (userId === undefined || userId.length <= 0) {
+                console.log('firebasePaths->getPath() => BAD_USER_ID');
+                return '';
+            } else {
+                return (
+                    exports.d +
+                    exports.folderNames.USERS +
+                    exports.d +
+                    userId
+                );
+            }
+        }
+
+        case exports.paths.USER_DELIM: {
+            if (userId === undefined || userId.length <= 0) {
+                console.log('firebasePaths->getPath() => BAD_USER_ID');
+                return '';
+            } else {
+                return (
+                    exports.d +
+                    exports.folderNames.USERS +
+                    exports.d +
+                    userId +
+                    exports.d
+                );
+            }
+        }
+
         case exports.paths.USERS_ROOT: {
             return exports.d + exports.folderNames.USERS + exports.d;
         }
@@ -195,6 +224,42 @@ exports.getPath = ({pathType, userId, shoppingListId, productId}) => {
                 );
             }
         }
+        case exports.paths.SHOPPING_LIST_SENDER: {
+            if (shoppingListId === undefined || shoppingListId.length <= 0) {
+                console.log('firebasePaths->getPath() => BAD_SHOPPING_LIST_ID');
+                return '';
+            } else {
+                return (
+                    exports.d +
+                    exports.folderNames.SHARED +
+                    exports.d +
+                    exports.folderNames.SHOPPING_LISTS +
+                    exports.d +
+                    shoppingListId +
+                    exports.d +
+                    exports.folderNames.SHOPPING_LIST_SENDER
+                );
+            }
+        }
+
+        case exports.paths.SHOPPING_LIST_RECEIVERS: {
+            if (shoppingListId === undefined || shoppingListId.length <= 0) {
+                console.log('firebasePaths->getPath() => BAD_SHOPPING_LIST_ID');
+                return '';
+            } else {
+                return (
+                    exports.d +
+                    exports.folderNames.SHARED +
+                    exports.d +
+                    exports.folderNames.SHOPPING_LISTS +
+                    exports.d +
+                    shoppingListId +
+                    exports.d +
+                    exports.folderNames.SHOPPING_LIST_RECEIVERS
+                );
+            }
+        }
+
 
         case exports.paths.PRODUCTS_LIST: {
             if (shoppingListId === undefined || shoppingListId.length <= 0) {
@@ -304,6 +369,8 @@ exports.getPath = ({pathType, userId, shoppingListId, productId}) => {
 };
 
 exports.paths = {
+    USER: 'USER',
+    USER_DELIM: 'USER_DELIM',
     USERS_ROOT: 'USERS_ROOT',
     USER_SEND: 'USER_SEND',
     USER_SEND_DELIM: 'USER_SEND_DELIM',
@@ -315,6 +382,8 @@ exports.paths = {
     SHOPPING_LIST_DATA_DELIM: 'SHOPPING_LIST_DATA_DELIM',
     SHOPPING_LIST_CARD: 'SHOPPING_LIST_CARD',
     SHOPPING_LIST_CARD_DELIM: 'SHOPPING_LIST_CARD_DELIM',
+    SHOPPING_LIST_SENDER: 'SHOPPING_LIST_SENDER',
+    SHOPPING_LIST_RECEIVERS: 'SHOPPING_LIST_RECEIVERS',
     SHOPPING_LIST: 'SHOPPING_LIST',
     SHOPPING_LIST_DELIM: 'SHOPPING_LIST_DELIM',
     PRODUCTS_LIST: 'PRODUCTS_LIST',
@@ -331,11 +400,15 @@ exports.folderNames = {
     SHOPPING_LISTS: 'shoppingLists',
     SHOPPING_LIST: 'shoppingList',
     SHOPPING_LIST_CARD: 'shoppingListCard',
+    SHOPPING_LIST_SENDER: 'sender',
+    SHOPPING_LIST_RECEIVERS: 'receivers',
     PRODUCTS_LIST: 'productsList',
     COMPLETED_ITEMS_COUNT: 'completedItemsCount',
     COMPLETION_STATUS: 'completionStatus',
     TOTAL_ITEMS_COUNT: 'totalItemsCount',
     UPDATE_TIMESTAMP: 'updateTimestamp',
+    CLASSES: 'classes',
+    UNITS: 'units',
 };
 
 exports.d = '/';

@@ -1,4 +1,5 @@
 const statusTypes = require('../../data/common/statusTypes');
+const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
 
 exports.signUpHandler = async ({req, res, admin}) => {
     const requestData = req.body;
@@ -17,7 +18,11 @@ exports.signUpHandler = async ({req, res, admin}) => {
         return;
     }
 
-    const snapshot = await admin.database().ref('/users/' + phone).once('value');
+    const userPath = firebasePaths.getPath({
+        pathType: firebasePaths.paths.USER,
+        userId: phone,
+    });
+    const snapshot = await admin.database().ref(userPath).once('value');
     if (snapshot.exists()) {
         res.json({
             status: statusTypes.USER_ALREADY_EXIST,
@@ -25,11 +30,17 @@ exports.signUpHandler = async ({req, res, admin}) => {
         return;
     }
 
-    await admin.database().ref('/users').child(phone).set({
-        password: password,
-        email: email,
-        token: deviceToken,
-    });
+    await admin
+        .database()
+        .ref(firebasePaths.d + firebasePaths.folderNames.USERS)
+        .child(phone)
+        .set(
+            {
+                password: password,
+                email: email,
+                token: deviceToken,
+            }
+    );
 
     res.json({
         status: statusTypes.SUCCESS,

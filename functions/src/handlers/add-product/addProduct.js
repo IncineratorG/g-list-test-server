@@ -14,9 +14,7 @@ exports.addProductHandler = async ({req, res, admin}) => {
 
     if (!editor ||
         !shoppingListId ||
-        !product ||
-        !completedItemsCount ||
-        !totalItemsCount) {
+        !product) {
         res.json({
             status: statusTypes.BAD_REQUEST_DATA,
         });
@@ -37,6 +35,14 @@ exports.addProductHandler = async ({req, res, admin}) => {
         shoppingListId,
         productId: product.id,
     });
+    const listSenderPath = firebasePaths.getPath({
+        pathType: firebasePaths.paths.SHOPPING_LIST_SENDER,
+        shoppingListId,
+    });
+    const listReceiversPath = firebasePaths.getPath({
+        pathType: firebasePaths.paths.SHOPPING_LIST_RECEIVERS,
+        shoppingListId,
+    });
 
     if (listPath.length <= 0 || listCardPath.length <= 0 || productPath <= 0) {
         console.log(
@@ -53,12 +59,20 @@ exports.addProductHandler = async ({req, res, admin}) => {
 
     const listSenderData = await admin
         .database()
-        .ref('/shared/shoppingLists/' + shoppingListId + '/sender')
+        .ref(listSenderPath)
         .once('value');
     const listReceiversData = await admin
         .database()
-        .ref('/shared/shoppingLists/' + shoppingListId + '/receivers')
+        .ref(listReceiversPath)
         .once('value');
+    // const listSenderData = await admin
+    //     .database()
+    //     .ref('/shared/shoppingLists/' + shoppingListId + '/sender')
+    //     .once('value');
+    // const listReceiversData = await admin
+    //     .database()
+    //     .ref('/shared/shoppingLists/' + shoppingListId + '/receivers')
+    //     .once('value');
 
     const listSenders = [];
     const listReceivers = [];
@@ -107,10 +121,28 @@ exports.addProductHandler = async ({req, res, admin}) => {
     updates[productPath] = product;
 
     listSenders.forEach(senderPhone => {
-        updates['/users/' + senderPhone + '/send/' + shoppingListId + '/updateTimestamp'] = updateTimestamp;
+        const userSendPath = firebasePaths.getPath({
+            pathType: firebasePaths.paths.USER_SEND_DELIM,
+            userId: senderPhone,
+        });
+        updates[
+            userSendPath +
+            shoppingListId +
+            firebasePaths.d +
+            firebasePaths.folderNames.UPDATE_TIMESTAMP
+            ] = updateTimestamp;
     });
     listReceivers.forEach(receiverPhone => {
-        updates['/users/' + receiverPhone + '/received/' + shoppingListId + '/updateTimestamp'] = updateTimestamp;
+        const userReceivedPath = firebasePaths.getPath({
+            pathType: firebasePaths.paths.USER_RECEIVED_DELIM,
+            userId: receiverPhone,
+        });
+        updates[
+            userReceivedPath +
+            shoppingListId +
+            firebasePaths.d +
+            firebasePaths.folderNames.UPDATE_TIMESTAMP
+            ] = updateTimestamp;
     });
 
     await admin.database().ref().update(updates);

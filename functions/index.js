@@ -13,6 +13,7 @@ const sendUpdateMessage = require('./src/handlers/send-update-message/sendUpdate
 const updateTimestamp = require('./src/handlers/update-timestamp/updateTimestamp');
 const setProductStatus = require('./src/handlers/set-product-status/setProductStatus');
 const addProduct = require('./src/handlers/add-product/addProduct');
+const removeProduct = require('./src/handlers/remove-product/removeProduct');
 
 exports.sendMessage = functions.https.onRequest(async (req, res) => {
     await sendMessage.sendMessageHandler({req, res, admin});
@@ -52,4 +53,8 @@ exports.setProductStatus = functions.https.onRequest(async (req, res) => {
 
 exports.addProduct = functions.https.onRequest(async (req, res) => {
     await addProduct.addProductHandler({req, res, admin});
+});
+
+exports.removeProduct = functions.https.onRequest(async (req, res) => {
+    await removeProduct.removeProductHandler({req, res, admin});
 });

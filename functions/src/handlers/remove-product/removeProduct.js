@@ -1,22 +1,20 @@
 const statusTypes = require('../../data/common/statusTypes');
 const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
 
-exports.setProductStatusHandler = async ({req, res, admin}) => {
+exports.removeProductHandler = async ({req, res, admin}) => {
     const requestData = req.body;
 
     const {
         editor,
         shoppingListId,
         productId,
-        status,
         completedItemsCount,
         totalItemsCount,
     } = requestData;
 
     if (!editor ||
         !shoppingListId ||
-        !productId ||
-        !status) {
+        !productId) {
         res.json({
             status: statusTypes.BAD_REQUEST_DATA,
         });
@@ -35,7 +33,7 @@ exports.setProductStatusHandler = async ({req, res, admin}) => {
     const productPath = firebasePaths.getPath({
         pathType: firebasePaths.paths.PRODUCT,
         shoppingListId,
-        productId,
+        productId: productId,
     });
     const listSenderPath = firebasePaths.getPath({
         pathType: firebasePaths.paths.SHOPPING_LIST_SENDER,
@@ -48,7 +46,7 @@ exports.setProductStatusHandler = async ({req, res, admin}) => {
 
     if (listPath.length <= 0 || listCardPath.length <= 0 || productPath <= 0) {
         console.log(
-            'setProductStatusHandler->BAD_PATH_LENGTH: ' +
+            'removeProductHandler->BAD_PATH_LENGTH: ' +
             listPath.length + '-' +
             listCardPath.length + '-' +
             productPath.length
@@ -67,14 +65,6 @@ exports.setProductStatusHandler = async ({req, res, admin}) => {
         .database()
         .ref(listReceiversPath)
         .once('value');
-    // const listSenderData = await admin
-    //     .database()
-    //     .ref('/shared/shoppingLists/' + shoppingListId + '/sender')
-    //     .once('value');
-    // const listReceiversData = await admin
-    //     .database()
-    //     .ref('/shared/shoppingLists/' + shoppingListId + '/receivers')
-    //     .once('value');
 
     const listSenders = [];
     const listReceivers = [];
@@ -103,6 +93,7 @@ exports.setProductStatusHandler = async ({req, res, admin}) => {
     updates[
     listPath + firebasePaths.d + firebasePaths.folderNames.UPDATE_TIMESTAMP
         ] = updateTimestamp;
+
     updates[
     listCardPath +
     firebasePaths.d +
@@ -118,14 +109,8 @@ exports.setProductStatusHandler = async ({req, res, admin}) => {
     firebasePaths.d +
     firebasePaths.folderNames.UPDATE_TIMESTAMP
         ] = updateTimestamp;
-    updates[
-    productPath +
-    firebasePaths.d +
-    firebasePaths.folderNames.COMPLETION_STATUS
-        ] = status;
-    updates[
-    productPath + firebasePaths.d + firebasePaths.folderNames.UPDATE_TIMESTAMP
-        ] = updateTimestamp;
+
+    updates[productPath] = null;
 
     listSenders.forEach(senderPhone => {
         const userSendPath = firebasePaths.getPath({
