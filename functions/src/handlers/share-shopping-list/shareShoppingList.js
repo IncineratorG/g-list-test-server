@@ -1,18 +1,20 @@
 const statusTypes = require('../../data/common/statusTypes');
 const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
+// const emailConverter = require('../../helpers/email-converter/emailConverter');
+const idManager = require('../../helpers/id-manager/idManager');
 
 exports.shareShoppingListHandler = async ({req, res, admin}) => {
     const requestData = req.body;
 
-    const senderPhone = requestData.sender;
-    const receiversPhones = requestData.receivers;
+    const senderEmail = requestData.sender;
+    const receiversEmails = requestData.receivers;
     const shoppingListCard = requestData.shoppingListCard;
     const shoppingList = requestData.shoppingList;
     const units = requestData.units;
     const classes = requestData.classes;
 
-    if (!receiversPhones || receiversPhones.length <= 0 ||
-        !senderPhone || senderPhone.length <= 0 ||
+    if (!receiversEmails || receiversEmails.length <= 0 ||
+        !senderEmail || senderEmail.length <= 0 ||
         !shoppingListCard ||
         !shoppingList ||
         !units ||
@@ -23,9 +25,12 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
         return;
     }
 
+    const senderId = idManager.getId(senderEmail);
+    const receiversIds = receiversEmails.map(email => idManager.getId(email));
+
     const senderPath = firebasePaths.getPath({
         pathType: firebasePaths.paths.USER,
-        userId: senderPhone,
+        userId: senderId,
     });
     const senderDbData = await admin.database().ref(senderPath).once('value');
     if (!senderDbData.exists()) {
@@ -36,21 +41,21 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
     }
 
     let receiversDbData = await Promise.all(
-        receiversPhones.map(async receiverPhone => {
+        receiversIds.map(async id => {
             const receiverPath = firebasePaths.getPath({
                 pathType: firebasePaths.paths.USER,
-                userId: receiverPhone,
+                userId: id,
             });
             const receiverDbData = await admin.database().ref(receiverPath).once('value');
             if (receiverDbData.exists()) {
-                return {phone: receiverPhone, token: receiverDbData.val().token};
+                return {id: id, token: receiverDbData.val().token};
             } else {
-                return {phone: undefined, token: undefined};
+                return {id: undefined, token: undefined};
             }
         }),
     );
 
-    receiversDbData = receiversDbData.filter(data => data.phone && data.token);
+    receiversDbData = receiversDbData.filter(data => data.id && data.token);
     if (!receiversDbData.length) {
         res.json({
             status: statusTypes.USER_NOT_EXIST,
@@ -73,7 +78,7 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
         shoppingListId: sharedListRef.key
     });
     firstUpdates[shoppingListPath] = {
-        sender: senderPhone,
+        sender: senderEmail,
         shoppingListCard,
         shoppingList: shoppingListDescription,
     };
@@ -112,17 +117,17 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
             unitKey
             ] = unit;
     });
-    receiversPhones.forEach(receiverPhone => {
+    receiversEmails.forEach(receiverEmail => {
         const listReceiversPath = firebasePaths.getPath({
             pathType: firebasePaths.paths.SHOPPING_LIST_RECEIVERS,
             shoppingListId: sharedListRef.key,
         });
-        const receiverPhoneKey = admin
+        const receiverKey = admin
             .database()
             .ref(listReceiversPath)
             .push()
             .key;
-        secondUpdates[listReceiversPath + firebasePaths.d + receiverPhoneKey] = receiverPhone;
+        secondUpdates[listReceiversPath + firebasePaths.d + receiverKey] = receiverEmail;
     });
     shoppingList.productsList.forEach(product => {
         const productsListPath = firebasePaths.getPath({
@@ -145,7 +150,7 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
 
     const userSendPath = firebasePaths.getPath({
         pathType: firebasePaths.paths.USER_SEND_DELIM,
-        userId: senderPhone,
+        userId: senderId,
     });
     secondUpdates[userSendPath + sharedListRef.key] = {
         id: sharedListRef.key,
@@ -154,7 +159,7 @@ exports.shareShoppingListHandler = async ({req, res, admin}) => {
     receiversDbData.forEach(data => {
         const userReceivedPath = firebasePaths.getPath({
             pathType: firebasePaths.paths.USER_RECEIVED_DELIM,
-            userId: data.phone
+            userId: data.id
         });
         secondUpdates[userReceivedPath + sharedListRef.key] = {
             id: sharedListRef.key,

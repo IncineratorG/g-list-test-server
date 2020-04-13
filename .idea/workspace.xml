@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/functions/src/handlers/remove-product/removeProduct.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/email-converter/emailConverter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/id-manager/idManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/src/handlers/sign-in/signIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/sign-in/signIn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/src/handlers/sign-up/signUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/sign-up/signUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/firebase-paths/firebasePaths.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/helpers/firebase-paths/firebasePaths.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +39,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexander\FirebaseProjects\g-list-test-server\functions\src\helpers\email-converter" />
       <recent name="C:\Users\Alexander\FirebaseProjects\g-list-test-server\functions\src\handlers" />
     </key>
   </component>
@@ -94,7 +91,10 @@
       <workItem from="1585077432602" duration="1120000" />
       <workItem from="1585139923113" duration="8415000" />
       <workItem from="1585206459063" duration="1204000" />
-      <workItem from="1585224760698" duration="6872000" />
+      <workItem from="1585224760698" duration="7532000" />
+      <workItem from="1585939043809" duration="38000" />
+      <workItem from="1586779670895" duration="6426000" />
+      <workItem from="1586796092683" duration="3795000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -145,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585149748326</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Добавил возможность удаления продукта.">
+      <created>1585232552230</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585232552230</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +179,7 @@
     <MESSAGE value="Не помню что поменял." />
     <MESSAGE value="Добавил синхронизацию обновлений." />
     <MESSAGE value="Добавил совместную установку статуса продукта и совместное добавление продукта." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил совместную установку статуса продукта и совместное добавление продукта." />
+    <MESSAGE value="Добавил возможность удаления продукта." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил возможность удаления продукта." />
   </component>
 </project>
