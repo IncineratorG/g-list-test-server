@@ -1,6 +1,5 @@
 const statusTypes = require('../../data/common/statusTypes');
 const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
-// const emailConverter = require('../../helpers/email-converter/emailConverter');
 const idManager = require('../../helpers/id-manager/idManager');
 
 exports.signInHandler = async ({req, res, admin}) => {
@@ -20,7 +19,6 @@ exports.signInHandler = async ({req, res, admin}) => {
         return;
     }
 
-    // const firebaseValidEmail = emailConverter.encodeEmail(email);
     const userId = idManager.getId(email);
 
     const userPath = firebasePaths.getPath({
