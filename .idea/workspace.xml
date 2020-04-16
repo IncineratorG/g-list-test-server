@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/remove-product/removeProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/remove-product/removeProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/sign-in/signIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/sign-in/signIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +91,7 @@
       <workItem from="1585939043809" duration="38000" />
       <workItem from="1586779670895" duration="6426000" />
       <workItem from="1586796092683" duration="4562000" />
-      <workItem from="1587031245038" duration="5095000" />
+      <workItem from="1587031245038" duration="5770000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -159,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586803326611</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Для манипуляций списком покупок используется email пользователей.">
+      <created>1587047977649</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587047977649</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +192,7 @@
     <MESSAGE value="Добавил совместную установку статуса продукта и совместное добавление продукта." />
     <MESSAGE value="Добавил возможность удаления продукта." />
     <MESSAGE value="Сделал идентификацию пользователя по email." />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал идентификацию пользователя по email." />
+    <MESSAGE value="Для манипуляций списком покупок используется email пользователей." />
+    <option name="LAST_COMMIT_MESSAGE" value="Для манипуляций списком покупок используется email пользователей." />
   </component>
 </project>
