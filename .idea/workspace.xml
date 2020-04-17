@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/TestClass.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/list-update-strategy/listUpdateStrategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/listCardUpdateStrategy/listCardUpdateStrategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/listUpdater.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/pipeline.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/product-update-strategy/productUpdateStrategy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/remove-shopping-list/removeShoppingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +38,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -91,7 +99,8 @@
       <workItem from="1585939043809" duration="38000" />
       <workItem from="1586779670895" duration="6426000" />
       <workItem from="1586796092683" duration="4562000" />
-      <workItem from="1587031245038" duration="5770000" />
+      <workItem from="1587031245038" duration="13382000" />
+      <workItem from="1587123325077" duration="14493000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -163,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587047977649</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Для манипуляций списком покупок используется email пользователей.">
+      <created>1587048614735</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587048614735</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
