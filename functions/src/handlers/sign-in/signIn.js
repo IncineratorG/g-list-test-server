@@ -46,13 +46,6 @@ exports.signInHandler = async ({req, res, admin}) => {
             .ref(userPath)
             .update({token: deviceToken});
     }
-    // if (snapshot.val().token !== deviceToken) {
-    //     await admin
-    //         .database()
-    //         .ref(firebasePaths.d + firebasePaths.folderNames.USERS)
-    //         .child(firebaseValidEmail)
-    //         .update({token: deviceToken});
-    // }
 
     res.json({
         status: statusTypes.SUCCESS,

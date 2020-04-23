@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/remove-product/removeProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/remove-product/removeProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/set-product-status/setProductStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/TestClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/test-class/TestClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/list-update-strategy/listUpdateStrategy.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/product-updater/productUpdaters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/listCardUpdateStrategy/listCardUpdateStrategy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/listUpdater.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/listUpdater.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/pipeline.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/product-update-strategy/productUpdateStrategy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/check-user/checkUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/check-user/checkUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/sign-in/signIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/sign-in/signIn.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/ReactNativeProjects/g-list-final-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -104,7 +96,9 @@
       <workItem from="1586796092683" duration="4562000" />
       <workItem from="1587031245038" duration="13382000" />
       <workItem from="1587123325077" duration="14738000" />
-      <workItem from="1587215142910" duration="8908000" />
+      <workItem from="1587215142910" duration="8955000" />
+      <workItem from="1587313156011" duration="692000" />
+      <workItem from="1587629207579" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -190,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587157473015</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Устранил дублирование кода при редактировании списка покупок.">
+      <created>1587241560013</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587241560013</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +222,7 @@
     <MESSAGE value="Сделал идентификацию пользователя по email." />
     <MESSAGE value="Для манипуляций списком покупок используется email пользователей." />
     <MESSAGE value="Работа над совметсным обновлением списка покупок." />
-    <option name="LAST_COMMIT_MESSAGE" value="Работа над совметсным обновлением списка покупок." />
+    <MESSAGE value="Устранил дублирование кода при редактировании списка покупок." />
+    <option name="LAST_COMMIT_MESSAGE" value="Устранил дублирование кода при редактировании списка покупок." />
   </component>
 </project>
