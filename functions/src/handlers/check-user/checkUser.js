@@ -21,7 +21,7 @@ exports.checkUserHandler = async ({req, res, admin}) => {
         userId: userId,
     });
 
-    const snapshot = await admin.database.ref(userPath).once('value');
+    const snapshot = await admin.database().ref(userPath).once('value');
     if (snapshot.exists()) {
         res.json({
             status: statusTypes.USER_EXISTS,
