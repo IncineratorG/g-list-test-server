@@ -99,7 +99,8 @@
       <workItem from="1587313156011" duration="692000" />
       <workItem from="1587629207579" duration="656000" />
       <workItem from="1587630074126" duration="812000" />
-      <workItem from="1587733810231" duration="2096000" />
+      <workItem from="1587733810231" duration="2765000" />
+      <workItem from="1587753554501" duration="1027000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -206,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587630109022</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Исправил способ кодирования электронной почты пользователя.">
+      <created>1587739667866</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587739667866</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +247,7 @@
     <MESSAGE value="Работа над совметсным обновлением списка покупок." />
     <MESSAGE value="Устранил дублирование кода при редактировании списка покупок." />
     <MESSAGE value="Передела функцию проверки существования пользователя." />
-    <option name="LAST_COMMIT_MESSAGE" value="Передела функцию проверки существования пользователя." />
+    <MESSAGE value="Исправил способ кодирования электронной почты пользователя." />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправил способ кодирования электронной почты пользователя." />
   </component>
 </project>
