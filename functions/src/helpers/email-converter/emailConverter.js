@@ -32,7 +32,7 @@ const shiftReplacer = '*';
 const shiftReplacerGlobal = /\*/g;
 
 const dollarSign = '$';
-const dollarSignGlobal = /\^/g;
+const dollarSignGlobal = /\$/g;
 const dollarReplacer = '^';
 const dollarReplacerGlobal = /\^/g;
 
