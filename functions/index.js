@@ -14,6 +14,8 @@ const updateTimestamp = require('./src/handlers/update-timestamp/updateTimestamp
 const setProductStatus = require('./src/handlers/set-product-status/setProductStatus');
 const addProduct = require('./src/handlers/add-product/addProduct');
 const removeProduct = require('./src/handlers/remove-product/removeProduct');
+const addCollaborator = require('./src/handlers/add-collaborator/addCollaborator');
+const removeCollaborator = require('./src/handlers/remove-collaborator/removeCollaborator');
 
 exports.sendMessage = functions.https.onRequest(async (req, res) => {
     await sendMessage.sendMessageHandler({req, res, admin});
@@ -57,4 +59,12 @@ exports.addProduct = functions.https.onRequest(async (req, res) => {
 
 exports.removeProduct = functions.https.onRequest(async (req, res) => {
     await removeProduct.removeProductHandler({req, res, admin});
+});
+
+exports.addCollaborator = functions.https.onRequest(async (req, res) => {
+    await addCollaborator.addCollaboratorHandler({req, res, admin});
+});
+
+exports.removeCollaborator = functions.https.onRequest(async (req, res) => {
+    await removeCollaborator.removeCollaboratorHandler({req, res, admin});
 });

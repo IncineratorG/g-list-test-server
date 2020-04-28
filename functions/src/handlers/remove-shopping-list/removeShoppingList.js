@@ -46,7 +46,7 @@ exports.removeShoppingListHandler = async ({req, res, admin}) => {
 
     let updates = {};
 
-    // Убираем список из пвпки создателя данного списка.
+    // Убираем список из папки создателя данного списка.
     const userSendPath = firebasePaths.getPath({
         pathType: firebasePaths.paths.USER_SEND_DELIM,
         userId: senderId,
