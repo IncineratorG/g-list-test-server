@@ -13,9 +13,7 @@ exports.update = async ({admin,
         !editor ||
         !shoppingListId ||
         !productId ||
-        !productUpdater ||
-        !totalItemsCount ||
-        !completedItemsCount) {
+        !productUpdater) {
         return {updates: undefined, error: statusTypes.BAD_REQUEST_DATA};
     }
 

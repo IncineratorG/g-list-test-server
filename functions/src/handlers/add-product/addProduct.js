@@ -22,6 +22,13 @@ exports.addProductHandler = async ({req, res, admin}) => {
         return;
     }
 
+    // // ===
+    // res.json({
+    //     status: statusTypes.BAD_REQUEST_DATA,
+    // });
+    // return;
+    // // ===
+
     const productUpdater = productUpdaters.get(productUpdaters.types.ADD_PRODUCT);
     productUpdater.data.product = product;
 

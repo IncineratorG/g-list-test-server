@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f1472d6d-ba3b-4c61-94bc-bf071c36478f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/helpers/email-converter/emailConverter.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/helpers/email-converter/emailConverter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/add-product/addProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/handlers/share-shopping-list/shareShoppingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/helpers/list-updater/listUpdater.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/helpers/list-updater/listUpdater.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +105,12 @@
       <workItem from="1587630074126" duration="812000" />
       <workItem from="1587733810231" duration="2765000" />
       <workItem from="1587753554501" duration="1246000" />
-      <workItem from="1587754906203" duration="57000" />
+      <workItem from="1587754906203" duration="531000" />
+      <workItem from="1587806672889" duration="652000" />
+      <workItem from="1587819440726" duration="49000" />
+      <workItem from="1587980296378" duration="1893000" />
+      <workItem from="1588073607900" duration="1164000" />
+      <workItem from="1588076821241" duration="2064000" />
     </task>
     <task id="LOCAL-00001" summary="Работа над передачей сообщений между устройствами.">
       <created>1583262392025</created>
@@ -222,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587754695731</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Исправил способ кодирования электронной почты пользователя.">
+      <created>1587755197226</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587755197226</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

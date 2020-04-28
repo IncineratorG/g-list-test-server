@@ -1,6 +1,5 @@
 const statusTypes = require('../../data/common/statusTypes');
 const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
-// const emailConverter = require('../../helpers/email-converter/emailConverter');
 const idManager = require('../../helpers/id-manager/idManager');
 
 exports.shareShoppingListHandler = async ({req, res, admin}) => {
