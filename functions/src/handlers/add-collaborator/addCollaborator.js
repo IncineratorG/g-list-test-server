@@ -28,14 +28,6 @@ exports.addCollaboratorHandler = async ({req, res, admin}) => {
         shoppingListId,
     });
 
-    // // Получаем ID нового получаетеля списка.
-    // const collaboratorKeyRef = admin.database().ref(listReceiversPath).push();
-    //
-    // // Добавляем получателя.
-    // let updates = {};
-    // updates[listReceiversPath + firebasePaths.d + collaboratorKeyRef.key] = collaborator;
-
-
     // Получаем данные создателя списка.
     const senderData = await admin
         .database()
@@ -47,17 +39,7 @@ exports.addCollaboratorHandler = async ({req, res, admin}) => {
         .ref(listReceiversPath)
         .once('value');
 
-    // // Получаем ID создателя и получателей списка.
-    // const senderId = idManager.getId(senderData.val());
-    // const receiversIds = [];
-    // receiversData.forEach(child => {
-    //     receiversIds.push(
-    //         idManager.getId(child.val())
-    //     );
-    // });
-    // // Добавлемя нового получателя.
-    // receiversIds.push(collaborator);
-
+    // Получаем ID создателя и получателей списка.
     const senderId = idManager.getId(senderData.val());
     const receiversIds = [];
     receiversData.forEach(child => {
@@ -72,16 +54,15 @@ exports.addCollaboratorHandler = async ({req, res, admin}) => {
     // Получаем ID нового получаетеля списка.
     const collaboratorKeyRef = admin.database().ref(listReceiversPath).push();
 
-    // Добавляем получателя.
     let updates = {};
-    updates[listReceiversPath + firebasePaths.d + collaboratorKeyRef.key] = collaborator;
+
     // Обновляем данные создателя списка.
     const senderPath = firebasePaths.getPath({
         pathType: firebasePaths.paths.USER_SEND_DELIM,
         userId: senderId,
     });
     updates[
-        senderPath + shoppingListId + firebasePaths.d + firebasePaths.folderNames.UPDATE_TIMESTAMP
+    senderPath + shoppingListId + firebasePaths.d + firebasePaths.folderNames.UPDATE_TIMESTAMP
         ] = updateTimestamp;
 
     // Обновляем данные существующих получателей списка.
@@ -94,17 +75,6 @@ exports.addCollaboratorHandler = async ({req, res, admin}) => {
             receiverPath + shoppingListId + firebasePaths.d + firebasePaths.folderNames.UPDATE_TIMESTAMP
             ] = updateTimestamp;
     });
-
-    // Добавляем список новому пользователю.
-    const newReceiverPath = firebasePaths.getPath({
-        pathType: firebasePaths.paths.USER_RECEIVED_DELIM,
-        userId: newCollaboratorId,
-    });
-    updates[newReceiverPath + shoppingListId] = {
-        id: shoppingListId,
-        updateTimestamp,
-        touched: false,
-    };
 
     // Обновляем список покупок.
     const shoppingListPath = firebasePaths.getPath({
@@ -125,6 +95,20 @@ exports.addCollaboratorHandler = async ({req, res, admin}) => {
         firebasePaths.d +
         firebasePaths.folderNames.UPDATE_TIMESTAMP
         ] = updateTimestamp;
+
+    // Добавляем получателя.
+    updates[listReceiversPath + firebasePaths.d + collaboratorKeyRef.key] = collaborator;
+
+    // Добавляем список новому пользователю.
+    const newReceiverPath = firebasePaths.getPath({
+        pathType: firebasePaths.paths.USER_RECEIVED_DELIM,
+        userId: newCollaboratorId,
+    });
+    updates[newReceiverPath + shoppingListId] = {
+        id: shoppingListId,
+        updateTimestamp,
+        touched: false,
+    };
 
     // Применяем обновление.
     await admin.database().ref().update(updates);
