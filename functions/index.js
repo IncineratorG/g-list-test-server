@@ -16,6 +16,7 @@ const addProduct = require('./src/handlers/add-product/addProduct');
 const removeProduct = require('./src/handlers/remove-product/removeProduct');
 const addCollaborator = require('./src/handlers/add-collaborator/addCollaborator');
 const removeCollaborator = require('./src/handlers/remove-collaborator/removeCollaborator');
+const notifyUsers = require('./src/handlers/notify-users/notifyUsers');
 
 exports.sendMessage = functions.https.onRequest(async (req, res) => {
     await sendMessage.sendMessageHandler({req, res, admin});
@@ -67,4 +68,8 @@ exports.addCollaborator = functions.https.onRequest(async (req, res) => {
 
 exports.removeCollaborator = functions.https.onRequest(async (req, res) => {
     await removeCollaborator.removeCollaboratorHandler({req, res, admin});
+});
+
+exports.notifyUsers = functions.https.onRequest(async (req, res) => {
+    await notifyUsers.notifyUsersHandler({req, res, admin});
 });
