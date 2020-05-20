@@ -3,6 +3,8 @@ const idManager = require('../../helpers/id-manager/idManager');
 const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
 
 exports.notifyUsersHandler = async ({req, res, admin}) => {
+    console.log('NOTIFY_USERS_START');
+
     const requestData = req.body;
 
     const receivers = requestData.receivers;
@@ -33,6 +35,9 @@ exports.notifyUsersHandler = async ({req, res, admin}) => {
         }),
     );
     receiversTokensData = receiversTokensData.filter(data => data.token);
+
+    console.log('LENGTH: ' + receiversTokensData.length);
+
     if (!receiversTokensData.length) {
         res.json({
             status: statusTypes.USER_NOT_EXIST,
@@ -41,24 +46,7 @@ exports.notifyUsersHandler = async ({req, res, admin}) => {
     }
 
     const myMessage = 'MY_MESSAGE';
-    receiversTokensData.forEach(data => {
-        const message = {
-            token: data.token,
-            data: {
-                myMessage,
-            },
-            android: {
-                priority: 'high',
-            },
-        };
-
-        try {
-            admin.messaging().send(message);
-        } catch (e) {
-            console.log('ERROR: ' + e);
-        }
-    });
-    // await Promise.all(receiversTokensData.map(async data => {
+    // receiversTokensData.forEach(data => {
     //     const message = {
     //         token: data.token,
     //         data: {
@@ -70,11 +58,28 @@ exports.notifyUsersHandler = async ({req, res, admin}) => {
     //     };
     //
     //     try {
-    //         await admin.messaging().send(message);
+    //         admin.messaging().send(message);
     //     } catch (e) {
     //         console.log('ERROR: ' + e);
     //     }
-    // }));
+    // });
+    await Promise.all(receiversTokensData.map(async data => {
+        const message = {
+            token: data.token,
+            data: {
+                myMessage,
+            },
+            android: {
+                priority: 'high',
+            },
+        };
+
+        try {
+            await admin.messaging().send(message);
+        } catch (e) {
+            console.log('ERROR: ' + e);
+        }
+    }));
 
     res.json({
         status: statusTypes.SUCCESS,
