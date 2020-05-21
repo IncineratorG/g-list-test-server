@@ -3,11 +3,10 @@ const idManager = require('../../helpers/id-manager/idManager');
 const firebasePaths = require('../../helpers/firebase-paths/firebasePaths');
 
 exports.notifyUsersHandler = async ({req, res, admin}) => {
-    console.log('NOTIFY_USERS_START');
-
     const requestData = req.body;
 
     const receivers = requestData.receivers;
+    const notifyMessage = requestData.message;
 
     if (!receivers || !receivers.length) {
         res.json({
@@ -36,8 +35,6 @@ exports.notifyUsersHandler = async ({req, res, admin}) => {
     );
     receiversTokensData = receiversTokensData.filter(data => data.token);
 
-    console.log('LENGTH: ' + receiversTokensData.length);
-
     if (!receiversTokensData.length) {
         res.json({
             status: statusTypes.USER_NOT_EXIST,
@@ -45,7 +42,6 @@ exports.notifyUsersHandler = async ({req, res, admin}) => {
         return;
     }
 
-    const myMessage = 'MY_MESSAGE';
     // receiversTokensData.forEach(data => {
     //     const message = {
     //         token: data.token,
@@ -67,7 +63,7 @@ exports.notifyUsersHandler = async ({req, res, admin}) => {
         const message = {
             token: data.token,
             data: {
-                myMessage,
+                notifyMessage
             },
             android: {
                 priority: 'high',
